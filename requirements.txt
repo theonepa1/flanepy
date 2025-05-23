@@ -1,0 +1,7 @@
+flask==3.0.2
+pywebview==4.4.1
+python-dotenv==1.0.1
+flask-cors==4.0.0
+requests==2.31.0
+pyinstaller==6.4.0
+dmgbuild==1.4.2 

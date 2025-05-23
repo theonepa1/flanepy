@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <!-- Teddy Bear Body -->
+    <circle cx="256" cy="256" r="200" fill="#8B4513"/>
+    
+    <!-- Teddy Bear Head -->
+    <circle cx="256" cy="180" r="120" fill="#8B4513"/>
+    
+    <!-- Teddy Bear Ears -->
+    <circle cx="160" cy="120" r="50" fill="#8B4513"/>
+    <circle cx="352" cy="120" r="50" fill="#8B4513"/>
+    
+    <!-- Teddy Bear Inner Ears -->
+    <circle cx="160" cy="120" r="30" fill="#A0522D"/>
+    <circle cx="352" cy="120" r="30" fill="#A0522D"/>
+    
+    <!-- Teddy Bear Eyes -->
+    <circle cx="220" cy="160" r="15" fill="white"/>
+    <circle cx="292" cy="160" r="15" fill="white"/>
+    <circle cx="220" cy="160" r="7" fill="black"/>
+    <circle cx="292" cy="160" r="7" fill="black"/>
+    
+    <!-- Teddy Bear Nose -->
+    <ellipse cx="256" cy="200" rx="20" ry="15" fill="black"/>
+    
+    <!-- Teddy Bear Mouth -->
+    <path d="M 230 220 Q 256 240 282 220" stroke="black" stroke-width="3" fill="none"/>
+    
+    <!-- Teddy Bear Arms -->
+    <path d="M 120 280 Q 80 320 100 360" stroke="#8B4513" stroke-width="40" fill="none"/>
+    <path d="M 392 280 Q 432 320 412 360" stroke="#8B4513" stroke-width="40" fill="none"/>
+    
+    <!-- Teddy Bear Legs -->
+    <path d="M 200 400 Q 180 460 220 460" stroke="#8B4513" stroke-width="40" fill="none"/>
+    <path d="M 312 400 Q 332 460 292 460" stroke="#8B4513" stroke-width="40" fill="none"/>
+</svg> 
