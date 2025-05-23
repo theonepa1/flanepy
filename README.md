@@ -80,21 +80,27 @@ cd ..
 
 2. Create the standalone application using PyInstaller:
 ```bash
+# On Windows:
+pyinstaller --noconfirm --windowed --add-data "frontend/out;frontend/out" --name "Flanepy" app.py
+
+# On macOS/Linux:
 pyinstaller --noconfirm --windowed --add-data "frontend/out:frontend/out" --name "Flanepy" app.py
 ```
 
-3. Create a DMG installer:
+3. Create a DMG installer (macOS only):
 ```bash
 dmgbuild -s dmg_settings.py "Flanepy" "dist/Flanepy.dmg"
 ```
 
 The final distribution files will be:
-- `dist/Flanepy.app` - The standalone application
-- `dist/Flanepy.dmg` - The macOS installer
+- Windows: `dist/Flanepy/Flanepy.exe` - The standalone application
+- macOS: `dist/Flanepy.app` - The standalone application
+- macOS: `dist/Flanepy.dmg` - The macOS installer
 
 ### Distribution Files
-- The `.app` bundle can be distributed directly to macOS users
-- The `.dmg` file provides a proper installer with drag-and-drop installation
+- On Windows: Copy the entire `dist/Flanepy` folder and run `Flanepy.exe`
+- On macOS: The `.app` bundle can be distributed directly to macOS users
+- On macOS: The `.dmg` file provides a proper installer with drag-and-drop installation
 
 ## Development
 
