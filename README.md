@@ -1,6 +1,25 @@
-# Flanepy - Desktop Application
+# Flanepy - Modern Desktop Application Template
 
-A modern desktop application built with Flask (backend), PyWebView (desktop wrapper), and Next.js (frontend).
+A powerful template for building modern desktop applications using Flask (backend), PyWebView (desktop wrapper), and Next.js (frontend). This template provides a solid foundation for creating cross-platform desktop applications with a beautiful web-based UI and robust Python backend.
+
+## Key Features
+
+- 🖥️ **Desktop Application**: Native desktop experience using PyWebView
+- 🔄 **Hot Reloading**: Automatic reloading of both frontend and backend during development
+- 🎨 **Modern UI**: Next.js frontend with all modern web capabilities
+- 🐍 **Python Backend**: Flask-powered backend for robust server-side operations
+- 🔌 **API Integration**: Built-in API endpoints for frontend-backend communication
+- 📦 **Easy Distribution**: Simple process to create standalone applications
+- 🔧 **Development Tools**: Comprehensive development environment setup
+
+## Use Cases
+
+This template is perfect for:
+- Desktop applications requiring a modern web-based UI
+- Cross-platform applications with Python backend logic
+- Applications needing both local and web capabilities
+- Projects requiring rapid development with hot reloading
+- Applications that need to be distributed as standalone executables
 
 ## Setup
 
@@ -80,4 +99,14 @@ The final distribution files will be:
 ## Development
 
 - Backend runs on: http://localhost:5000
-- Frontend development server runs on: http://localhost:3000 
+- Frontend development server runs on: http://localhost:3000
+- Hot reloading is enabled by default in development mode
+- Changes to both frontend and backend code will automatically trigger reloads
+
+## Contributing
+
+Feel free to use this template as a starting point for your desktop applications. Contributions and improvements are welcome!
+
+## License
+
+MIT License - Feel free to use this template for your projects. 
