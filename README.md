@@ -1,14 +1,14 @@
 # Flanepy - Modern Desktop Application Template
 
-A powerful template for building modern desktop applications using Flask (backend), PyWebView (desktop wrapper), and Next.js (frontend). This template provides a solid foundation for creating cross-platform desktop applications with a beautiful web-based UI and robust Python backend.
+A powerful template for building modern desktop applications using Python, PyWebView (desktop wrapper), and Next.js (frontend). This template provides a solid foundation for creating cross-platform desktop applications with a beautiful web-based UI and robust Python backend logic.
 
 ## Key Features
 
 - 🖥️ **Desktop Application**: Native desktop experience using PyWebView
-- 🔄 **Hot Reloading**: Automatic reloading of both frontend and backend during development
+- 🔄 **Hot Reloading**: Automatic reloading of the frontend during development
 - 🎨 **Modern UI**: Next.js frontend with all modern web capabilities
-- 🐍 **Python Backend**: Flask-powered backend for robust server-side operations
-- 🔌 **API Integration**: Built-in API endpoints for frontend-backend communication
+- 🐍 **Python Backend**: Python-powered backend logic, exposed to the frontend via a bridge (no Flask server required)
+- 🔌 **API Integration**: Built-in API bridge for frontend-backend communication
 - 📦 **Easy Distribution**: Simple process to create standalone applications
 - 🔧 **Development Tools**: Comprehensive development environment setup
 
@@ -46,7 +46,7 @@ cd frontend
 npm install
 ```
 
-3. Build the Next.js application:
+3. Build the Next.js application (for production/distribution):
 ```bash
 npm run build
 ```
@@ -56,16 +56,33 @@ npm run build
 ### Development Mode
 1. Start the development environment:
 ```bash
-python dev.py
+python app.py --dev
 ```
-
-The application will automatically open in a desktop window using PyWebView.
+- This will start the Next.js dev server (npm process) in the background.
+- The desktop window will open and connect to the dev server at http://localhost:3000.
+- When you close the app, the npm process is automatically terminated.
 
 ### Production Mode
-1. Start the Flask backend:
+1. Build the frontend (if not already built):
+```bash
+cd frontend
+npm run build
+cd ..
+```
+2. Start the application:
 ```bash
 python app.py
 ```
+- This will start a lightweight Python HTTP server to serve static files from `frontend/out`.
+- The desktop window will open and connect to http://127.0.0.1:42791.
+
+## Architecture
+- **No Flask server is used.**
+- All backend logic is exposed to the frontend via a Python API bridge (see `backend/bridge.py`).
+- In production, static files are served using Python's built-in `http.server`.
+- In development, the Next.js dev server is used for hot reloading and fast feedback.
+- The app window is managed by PyWebView, and all JS ↔ Python communication goes through the bridge.
+- The npm process is automatically cleaned up when the app is closed in dev mode (even if the window is closed).
 
 ## Distribution
 
@@ -104,10 +121,11 @@ The final distribution files will be:
 
 ## Development
 
-- Backend runs on: http://localhost:5000
+- Backend logic is exposed via the Python API bridge (no HTTP API server)
 - Frontend development server runs on: http://localhost:3000
 - Hot reloading is enabled by default in development mode
-- Changes to both frontend and backend code will automatically trigger reloads
+- Changes to frontend code will automatically trigger reloads
+- Closing the app in dev mode will also terminate the npm process
 
 ## Contributing
 

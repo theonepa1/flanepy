@@ -53,36 +53,26 @@ export default function Home() {
     setMessages(prev => [...prev, newMessage]);
     setMessage('');
 
-
     try {
-      console.log('Sending message to /api/echo:', message);
-      const response = await fetch('/api/echo', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: message }),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Response not OK:', response.status, errorText);
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (!window.pywebview?.api?.echo) {
+        throw new Error('Bridge not available');
       }
 
-      const data = await response.json();
-      console.log('Received response:', data);
+      const response = await window.pywebview.api.echo(message);
+
+      if ('error' in response) {
+        throw new Error(response.error);
+      }
       
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.message,
+        content: response.message,
         sender: 'assistant',
         timestamp: new Date(),
       };
 
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
-      console.error('Error sending message:', error);
       setError(`Failed to send message: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
