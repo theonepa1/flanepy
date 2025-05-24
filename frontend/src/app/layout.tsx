@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Desktop App",
-  description: "A modern desktop application built with Flask, PyWebView, and Next.js",
+  description: "A modern desktop application built with PyWebView and Next.js",
 };
 
 export default function RootLayout({
